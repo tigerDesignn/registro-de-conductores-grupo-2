@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro de Conductores - G 2</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Registro de Conductores</h1>
+<h2>Grupo 2</h2>
+
+<!-- Formulario para agregar registros -->
+<form id="registro-form">
+  <label for="conductor">Conductor:</label>
+  <input type="text" id="conductor" required>
+  
+  <label for="fechaInicio">Fecha de Inicio:</label>
+  <input type="date" id="fechaInicio" required>
+
+  <label for="fechaFin">Fecha de Fin:</label>
+  <input type="date" id="fechaFin" required>
+
+  <label for="numTerritorio">Num de Territorio:</label>
+  <select id="numTerritorio" required style="width: calc(100%);">
+    <option value="">Seleccione un número de territorio</option>
+    <!-- Agregar opciones para los números del 15 al 40 -->
+    <script>
+      for (let i = 15; i <= 40; i++) {
+        document.write(`<option value="${i}">${i}</option>`);
+      }
+    </script>
+  </select>
+  <br><br>
+  <button  type="submit">Agregar Registro</button> 
+</form>
+
+<!-- Pantalla de confirmación de eliminación -->
+<div id="confirm-delete-modal" class="modal">
+  <div class="modal-content">
+    <p style="text-align: center;">¿Estás seguro de que quieres eliminar este registro?</p>
+    <div>
+      <button id="confirm-delete">Sí, Estoy Seguro.</button>
+      <button id="cancel-delete">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Tabla para mostrar los registros -->
+<table id="table-container">
+  <thead>
+    <tr>
+      <th>Num de Territorio</th>
+      <th>Conductor</th>
+      <th>Fecha de Inicio</th>
+      <th>Fecha de Fin</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Aquí se generarán dinámicamente las filas de la tabla -->
+  </tbody>
+</table>
+
+<footer>
+    <a href="/grupoDos/registros/pdf" target="_blank" class="download-link">Descargar tabla en formato PDF</a><br><br><br><br>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
